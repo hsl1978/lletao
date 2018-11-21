@@ -26,7 +26,7 @@
       <!-- 导航部分 -->
       <div class="nav">
         <ul><li><a href="#"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li></ul>
-        <ul><li><a href="#"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
+        <ul><li><a href="#" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
             <div class="child">
               <a href="#"><span>一级分类</span></a>
               <a href="#"><span>二级分类</span></a>
@@ -44,10 +44,36 @@
       </div>
     </div>
 
+
+    <!-- 模态框部分 -->
+
+     <!-- 外层div是蒙层 -->
+<div class="modal fade" tabindex="-1" id="logoutModal">
+    <!-- 内层模态框 -->
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title">温馨提示</h4>
+        </div>
+        <div class="modal-body">
+          <p class="red"><i class="glyphicon glyphicon-info-sign"></i><span>您确定要退出后台管理系统吗？</span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
     <script src="./lib/jquery/jquery.min.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
     <script src="./js/comment.js"></script>
+    <script src="./js/islogin.js"></script>
   </body>
 </html>

@@ -25,6 +25,9 @@ ul{
   padding: 0;
   list-style: none;
 }
+.red{
+  color: #e92312;
+}
 
 
 /* 左侧侧边栏导航部分 */
@@ -36,7 +39,11 @@ ul{
   left: 0;
   top: 0;
   z-index: 999;
+  transition: left 1s;
 
+}
+.lt_aside.hidemenu{
+  left: -180px;
 }
 .lt_aside .brand{
   width: 100%;
@@ -97,6 +104,10 @@ ul{
   width: 100%;
   padding-left: 180px;
   padding-top: 50px;
+  transition: padding-left 1s;
+}
+.lt_main.hidemenu{
+  padding-left: 0px;
 }
  .lt_main .lt_topbar{
    width: 100%;
@@ -107,6 +118,10 @@ ul{
   top: 0;
   background-color: #3C8DBC;
   padding-left: 180px;
+  transition: padding-left 1s;
+}
+.lt_main .lt_topbar.hidemenu{
+  padding-left: 0px;
 }
 .lt_main .lt_topbar .icon-left,
 .lt_main .lt_topbar .icon-right{
