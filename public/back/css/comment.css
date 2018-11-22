@@ -32,6 +32,12 @@ ul{
   color: #e92312;
 }
 
+ .table.table-bordered th,
+ .table.table-bordered td{
+   text-align: center;
+   vertical-align: middle;
+ }
+
 
 /* 左侧侧边栏导航部分 */
 .lt_aside{
