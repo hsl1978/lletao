@@ -25,14 +25,14 @@
       </div>
       <!-- 导航部分 -->
       <div class="nav">
-        <ul><li><a href="#"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li></ul>
+        <ul><li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li></ul>
         <ul><li><a href="#" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
             <div class="child">
-              <a href="#"><span>一级分类</span></a>
-              <a href="#"><span>二级分类</span></a>
+              <a href="first.html"><span>一级分类</span></a>
+              <a href="second.html"><span>二级分类</span></a>
             </div>
         </li></ul>
-        <ul><li><a href="#"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li></ul>
+        <ul><li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li></ul>
       </div>
     </div>
     <!-- 右侧主题部分 -->
@@ -41,6 +41,21 @@
       <div class="lt_topbar">
         <a href="#" class="pull-left icon-left"><i class="glyphicon glyphicon-align-justify"></i></a>
         <a href="#" class="pull-right icon-right"><i class="glyphicon glyphicon-log-out"></i></a>
+      </div>
+      <!-- 下面的内容，使用流式布局container-fluid -->
+      <div class="container-fluid">
+        <!-- 面包屑的导航 -->
+        <ol class="breadcrumb mt_20">
+          <li><a href="index.html">管理系统</a></li>
+          <li class="active">首页</li>
+        </ol>
+
+        <!-- 两个图表 -->
+        <div class="lt_content">
+          <div class="echarts_1 pull-left"></div>
+          <div class="echarts_2 pull-right"></div>
+        </div>
+
       </div>
     </div>
 
@@ -73,7 +88,9 @@
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
+    <script src="./lib/echarts/echarts.min.js"></script>
     <script src="./js/comment.js"></script>
     <script src="./js/islogin.js"></script>
+    <script src="./js/index.js"></script>
   </body>
 </html>
