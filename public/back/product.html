@@ -86,6 +86,79 @@
       </div>
     </div>
 
+    <!-- 添加商品的模态框 -->
+   <div class="modal fade" id="productModal"  width="400">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title">添加分类</h4>
+        </div>
+        <div class="modal-body">
+          <form id="form">
+            <!-- 二级分类下拉框 -->
+            <div class="form-group">
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                  <span id="dropdownText">请选择二级分类</span>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <!-- 刨个坑 -->
+                </ul>
+              </div>
+    
+              <input type="hidden" name="brandId">
+              <!-- 商品上架下架，默认上架，值为1 -->
+              <input type="hidden" name="statu" value="1">
+            </div>
+            <!-- 输入商品名称 -->
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="请输入商品名称" name="proName">
+            </div>
+             <!-- 输入商品描述 -->
+            <div class="form-group">
+              <textarea class="form-control" rows="3" placeholder="请输入商品描述" name="proDesc"></textarea>
+            </div>
+             <!-- 输入商品库存 -->
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="请输入商品库存" name="num">
+            </div>
+            <!-- 请输入商品尺码 -->
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="请输入商品尺码" name="size">
+            </div>
+            <!-- 请输入商品原价 -->
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="请输入商品原价" name="oldPrice">
+            </div>
+            <!-- 请输入商品现价 -->
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="请输入商品现价" name="price">
+            </div>
+            <!-- 上传图片 -->
+            <div class="form-group">
+              <label class="btn btn-default" for="fileupload">上传图片</label>
+              <!-- 注意:
+                      1. 指定name用于让后台获取图片, 所以不能乱写
+                      2. 指定data-url, 指定接口地址
+              -->
+              <input type="file" multiple name="pic1" data-url="/product/addProductPic" id="fileupload" style="display: none;">
+            </div>
+            <div class="form-group" id="imgBox">
+              <!-- 作用：标记当前图片有没有上传满三张-->
+              <input type="hidden" name="picStatus">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <!-- html5 新增 form 属性, 可以让表单外的按钮, 与表单关联起来(就相当于是写在了表单里面)-->
+          <button type="submit" class="btn btn-primary" form="form">添加</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <!-- 模态框部分 -->
 
@@ -128,7 +201,13 @@
         </td>
       </tr>
     {{/each}}
+</script>
 
+<!-- 二级列表，下拉菜单渲染 -->
+<script type="text/html" id="prodTpl">
+   {{each rows v i}}
+       <li><a href="#" data-id="{{v.id}}">{{v.brandName }}</a></li>
+   {{/each}}
 
 </script>
 
@@ -139,8 +218,11 @@
     <script src="./lib/echarts/echarts.min.js"></script>
     <script src="./lib/artTemplate/template-web.js"></script>
     <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
-
-    <script src="./js/comment.js"></script>
+     <!-- 上传图片的js -->
+     <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+     <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+   
+     <script src="./js/comment.js"></script>
     <script src="./js/islogin.js"></script>
     <script src="./js/product.js"></script>
   </body>
