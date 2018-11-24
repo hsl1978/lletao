@@ -19,7 +19,7 @@ $(function(){
         $(".lt_content tbody").html(htmlStr);
 
         // 分页
-        $('.paginator').bootstrapPaginator({
+        $('#paginator').bootstrapPaginator({
           // 设置版本号
           bootstrapMajorVersion:3,
           // 设置当前页

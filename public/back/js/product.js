@@ -3,6 +3,8 @@ $(function(){
   var currentPage = 1;
   var pageSize = 2;//一页两条数据
 
+  var picArr = [];
+
   // 一进入页面，渲染一次
   render();
   function render(){
@@ -75,7 +77,10 @@ $('.dropdown-menu').on("click","a",function(){
 
     // 给到隐藏域
     $('[name="brandId"]').val(id);
+    
 
+    // 重置校验状态
+    $('#form').data("bootstrapValidator").updateStatus("brandId","VALID")
 
 });
 
@@ -89,11 +94,11 @@ $('#fileupload').fileupload({
     // 获取图片的地址对象
     var picObj = data.result;
     // 获取图片地址
-    var picAddr = picObj.picAddr;
+    var picUrl = picObj.picAddr;
     // 新得到的图片的对象，应该推送到数组的最前面
-    picAddr.unshift(picObj);
+    picArr.unshift(picObj);
     // 新的图片，应该添加到imgBox最前面
-    $('#imgBox').prepend('<img src="'+ picAddr +'" width="100">');
+    $('#imgBox').prepend('<img src="'+ picUrl +'" width="100">');
     // 如果上传的图片大于三个，需要将最后面的那个删除
     if(picArr.length > 3){
       // 删除数组的最后的一项
@@ -207,7 +212,46 @@ $('#form').bootstrapValidator({
 });
 
 // 6.注册校验成功事件
+  $('#form').on("success.form.bv",function(e){
+    //  阻止表单默认事件的提交
+    e.preventDefault();
 
+    var paramsStr = $("#form").serialize();//获取所有的表单元素
+
+    // 还需要拼接上图片的地址和名称
+    paramsStr += "&picName1="+picArr[0].picName+"&picAddr1="+picArr[0].picAddr;
+    paramsStr += "&picName2="+picArr[0].picName+"&picAddr2="+picArr[0].picAddr;
+    paramsStr += "&picName3="+picArr[0].picName+"&picAddr3="+picArr[0].picAddr;
+  
+    $.ajax({
+      type:'post',
+      url:'/product/addProduct',
+      data:paramsStr,
+      dataType:'json',
+      success:function(info){
+
+        if(info.success){
+          //关闭模态框
+          $('#productModal').modal("hide");
+          // 重新渲染第一页
+          currentPage = 1;
+          render();
+
+          // 表单重置
+          $('#form').data('bootstrapValidator').resetForm(true);
+
+          // 重置下拉菜单和图片
+          $('#dropdownText').text("请输入二级分类");
+
+          // 删除图片的同时，清空数组
+          $('#imgBox img').remove();
+
+          picArr = [];
+        }
+      }
+    })
+  
+  })
 
 
 
