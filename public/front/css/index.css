@@ -1,0 +1,11 @@
+.lt_list{
+  padding: 10px;
+}
+
+.lt_list li{
+   float: left;
+   width: 33.33%;
+}
+.lt_list li a{
+  display: block;
+}

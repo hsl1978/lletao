@@ -1,3 +1,8 @@
+img{
+  display: block;
+  width: 100%;
+}
+
 body,html{
   width: 100%;
   height: 100%;
@@ -14,7 +19,7 @@ ul{
 .lt_container{
   width: 100%;
   height: 100%;
-  background-color: pink;
+  background-color: #fff;
   max-width: 640px;
   min-width: 320px;
   margin: 0 auto;
@@ -97,5 +102,58 @@ ul{
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: skyblue;
+  /* background-color: skyblue; */
+}
+
+/* 公共的产品区域 */
+.lt_product{
+  padding: 10px;
+}
+.lt_product .lt_product_item{
+  width: 48%;
+  float: left;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  text-align: center;
+
+}
+.lt_product .lt_product_item:nth-child(2n+1){
+  margin-right: 4%;
+}
+.lt_product .lt_product_item img{
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+}
+.lt_product .lt_product_item .info{
+  height: 40px;
+  text-align: left;
+}
+
+.lt_product .lt_product_item .price{
+  color: red;
+}
+.lt_product .lt_product_item .oldPrice{
+  text-decoration: line-through;
+}
+
+/* 公共的搜索区域 */
+.lt_search{
+  padding: 10px;
+  position: relative;
+}
+.lt_search .search_input{
+  height: 34px;
+  font-size: 12px;
+  margin: 0;
+  border-radius: 5px;
+  border: 1px solid #007AFF ;
+
+}
+.search_btn{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-radius: 0 5px 5px 0;
 }
